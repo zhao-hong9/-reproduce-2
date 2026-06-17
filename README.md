@@ -1,32 +1,41 @@
-## Jupyter Notebooks for implemented methods in
-# Blind Hyperspectral Unmixing using Autoencoders: A Critical Comparison
+---
+license: unknown
+---
 
-The code uses tensorflow 2.x. The requirements needed to run the code is in the file requirements.txt. The autoencoder methods need the datasets to be in Matlab mat files having the following named variables:
+# Description
 
-| Variable | Content |
-| --- | ----------- |
-| Y | Array having dimensions B x P containing the spectra |
-| GT | Array having dimensions R x B containing the reference endmembers |
-|cols | The number of columns in the hyperspectral image (HSI) |
-|rows | The number of rows in the HSI |
+Urban is one of the most widely used hyperspectral data used in the hyperspectral unmixing study. There are 307x307 pixels, each of which corresponds to a 2x2 m2 area. In this image, there are 210 wavelengths ranging from 400 nm to 2500 nm, resulting in a spectral resolution of 10 nm. After the channels 1-4, 76, 87, 101-111, 136-153 and 198-210 are removed (due to dense water vapor and atmospheric effects), 162 channels are left (this is a common preprocess for hyperspectral unmixing analyses). There are three versions of ground truth, which contain 4, 5 and 6 endmembers respectively, which are introduced in the ground truth.
 
-Here, R is the number of endmembers, B the number of bands, and P the number of pixels. If you use any of the implemented methods, make sure you reference the papers they implement. The codes might be updated for increased clarity over the coming weeks. Included in this repository are the Urban and Samson HSIs. 
+# Quick look
 
-## How to cite
-**If you use Method_CNNAEU please use**
+<figure>
+    <img src= "assets/D9_1.png" alt="Urban" width="500" />
+    <figcaption>Urban and its ground truths.</figcaption>
+</figure>
 
-B. Palsson, M. O. Ulfarsson and J. R. Sveinsson, "Convolutional Autoencoder for Spectral–Spatial Hyperspectral Unmixing," in IEEE Transactions on Geoscience and Remote Sensing, vol. 59, no. 1, pp. 535-549, Jan. 2021, doi: 10.1109/TGRS.2020.2992743.
 
-@ARTICLE{9096565,  author={Palsson, Burkni and Ulfarsson, Magnus O. and Sveinsson, Johannes R.},  journal={IEEE Transactions on Geoscience and Remote Sensing},   title={Convolutional Autoencoder for Spectral–Spatial Hyperspectral Unmixing},   year={2021},  volume={59},  number={1},  pages={535-549},  doi={10.1109/TGRS.2020.2992743}}
+# Characteristics
 
-**If you use code for Method_MTLAEU please use**
+Ground Truth: three versions, including 4, 5 and 6 endmembers respectively.
 
-B. Palsson, J. R. Sveinsson and M. O. Ulfarsson, "Multitask Learning for Spatial-Spectral Hyperspectral Unmixing," IGARSS 2019 - 2019 IEEE International Geoscience and Remote Sensing Symposium, 2019, pp. 564-567, doi: 10.1109/IGARSS.2019.8900229.
+- 4 endmembers version: The 4 endmembers are "#1 Asphalt", "#2 Grass", "#3 Tree" and "#4 Roof" respectively.
 
-@INPROCEEDINGS{8900229,  author={Palsson, Burkni and Sveinsson, Johannes R. and Ulfarsson, Magnus O.},  booktitle={IGARSS 2019 - 2019 IEEE International Geoscience and Remote Sensing Symposium},   title={Multitask Learning for Spatial-Spectral Hyperspectral Unmixing},   year={2019},  volume={},  number={},  pages={564-567},  doi={10.1109/IGARSS.2019.8900229}}
+- 5 endmembers version: The 5 endmembers are "#1 Asphalt", "#2 Grass", "#3 Tree", "#4 Roof" and "#5 Dirt" respectively.
 
-**If you use code for Method_DAEU please use**
+- 6 endmembers version: The 6 endmembers are "#1 Asphalt", "#2 Grass", "#3 Tree", "#4 Roof", "#5 Metal", and "#6 Dirt" respectively.
 
-B. Palsson, J. Sigurdsson, J. R. Sveinsson and M. O. Ulfarsson, "Hyperspectral Unmixing Using a Neural Network Autoencoder," in IEEE Access, vol. 6, pp. 25646-25656, 2018, doi: 10.1109/ACCESS.2018.2818280.
+# Credits
 
-@ARTICLE{8322133,  author={Palsson, Burkni and Sigurdsson, Jakob and Sveinsson, Johannes R. and Ulfarsson, Magnus O.},  journal={IEEE Access},   title={Hyperspectral Unmixing Using a Neural Network Autoencoder},   year={2018},  volume={6},  number={},  pages={25646-25656},  doi={10.1109/ACCESS.2018.2818280}}
+Dataset originally collected by Feiyun Zhu and originally available at: http://www.escience.cn/people/feiyunZHU/Dataset_GT.html
+
+To use this dataset, cite the associated paper:
+
+```
+@misc{zhu2017hyperspectral,
+      title={Hyperspectral Unmixing: Ground Truth Labeling, Datasets, Benchmark Performances and Survey}, 
+      author={Feiyun Zhu},
+      year={2017},
+      eprint={1708.05125},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
+}
